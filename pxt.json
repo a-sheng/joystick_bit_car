@@ -1,0 +1,28 @@
+{
+    "name": "joystick_bit_car",
+    "version": "0.0.0",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "joystick": "github:emakefun/pxt-joystickbit#f3317a4ed9e399ab77201df3f955c5e939263c97"
+    },
+    "files": [
+        "README.md",
+        "main.blocks",
+        "main.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "targetVersions": {
+        "target": "5.0.12",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
