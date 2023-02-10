@@ -1,9 +1,19 @@
+radio.onReceivedNumber(function (receivedNumber) {
+    serial.writeLine("distance:" + receivedNumber)
+    if (receivedNumber < 10) {
+        joystick.Gamepad_shock(255)
+    } else if (receivedNumber < 50) {
+        joystick.Gamepad_shock(125)
+    } else {
+        joystick.Gamepad_shock(0)
+    }
+})
 let Bt = 0
 let Ry = 0
 let Rx = 0
 let Ly = 0
 let Lx = 0
-radio.setGroup(1)
+radio.setGroup(220)
 radio.setTransmitPower(7)
 basic.forever(function () {
     Lx = Math.map(joystick.Gamepad_Wiggly(Wiggly.JOYSTICK_left_wi, Shaft.JOYSTICK_X_Shaft), 0, 256, -255, 255)
@@ -28,6 +38,11 @@ basic.forever(function () {
     radio.sendValue("Rx", Math.trunc(Rx))
     radio.sendValue("Ry", Math.trunc(Ry))
     radio.sendValue("Bt", Bt)
+    serial.writeLine("Lx:" + Math.trunc(Lx))
+    serial.writeLine("Ly:" + Math.trunc(Ly))
+    serial.writeLine("Rx:" + Math.trunc(Rx))
+    serial.writeLine("Ry:" + Math.trunc(Ry))
+    serial.writeLine("Bt:" + Bt)
     if (Ly > 0 && Lx == 0) {
         basic.showLeds(`
             . . # . .
