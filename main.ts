@@ -13,7 +13,7 @@ let Ry = 0
 let Rx = 0
 let Ly = 0
 let Lx = 0
-radio.setGroup(220)
+radio.setGroup(1)
 radio.setTransmitPower(7)
 basic.forever(function () {
     Lx = Math.map(joystick.Gamepad_Wiggly(Wiggly.JOYSTICK_left_wi, Shaft.JOYSTICK_X_Shaft), 0, 256, -255, 255)
